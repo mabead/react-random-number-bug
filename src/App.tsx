@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+function getInitialValue()
+{
+  const initialValue = Math.floor(Math.random() * 100);
+  console.log(`initial value is ${initialValue}`);
+  return initialValue;
+}
+
+function MyRandom() {
+  const [randomValue, setRandomValue] = React.useState<number>(getInitialValue);  
+  console.log(`Rendering a random value of ${randomValue}`);
+  return <p>Random value: {randomValue}</p>
+}
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+  return <MyRandom/>;
 }
 
 export default App;
